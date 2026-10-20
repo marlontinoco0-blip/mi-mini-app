@@ -1,0 +1,345 @@
+<!DOCTYPE html> 
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>mi mini app</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- PANTALLA DE LOGIN DE PRUEBA -->
+<div id="pantalla-login" class="pantalla-bienvenida">
+    <div class="bienvenida-contenido login-contenido">
+
+        <h1>Bienvenido</h1>
+
+        <p class="bienvenida-mensaje">
+            Organiza tu día y construye tus metas.
+        </p>
+
+        <form id="formulario-login">
+
+            <label for="login-correo">
+                Correo electrónico
+            </label>
+
+            <input
+                type="email"
+                id="login-correo"
+                placeholder="tu@correo.com"
+                autocomplete="username"
+                required
+            >
+
+            <label for="login-contrasena">
+                Contraseña
+            </label>
+
+            <input
+                type="password"
+                id="login-contrasena"
+                placeholder="Escribe tu contraseña"
+                autocomplete="current-password"
+                required
+            >
+
+            <button type="submit" id="boton-login-demo">
+                Entrar
+            </button>
+
+        </form>
+        <div class="login-separador">
+            <span>O</span>
+        </div>
+
+        <button
+            type="button"
+            id="boton-google"
+            class="boton-google"
+        >
+            <span class="google-logo" aria-hidden="true">G</span>
+            <span>Continuar con Google</span>
+        </button>
+
+        <p class="login-nota">
+            Versión de prueba
+        </p>
+        <button type="button" id="boton-ir-registro">
+            Crear una cuenta nueva
+        </button>
+
+    </div>
+</div>
+<!-- FIN DE LA PANTALLA DE LOGIN -->
+ <!-- PANTALLA DE REGISTRO -->
+<div id="pantalla-registro" class="pantalla-bienvenida" hidden>
+    <div class="bienvenida-contenido login-contenido">
+
+        <h1>Crear cuenta</h1>
+
+        <p class="bienvenida-mensaje">
+            Crea tu cuenta y comienza a organizar tus metas.
+        </p>
+
+        <form id="formulario-registro">
+
+            <label for="registro-nombre">Nombre completo</label>
+            <input
+                type="text"
+                id="registro-nombre"
+                placeholder="Escribe tu nombre"
+                autocomplete="name"
+                required
+            >
+
+            <label for="registro-correo">Correo electrónico</label>
+            <input
+                type="email"
+                id="registro-correo"
+                placeholder="tu@correo.com"
+                autocomplete="email"
+                required
+            >
+
+            <label for="registro-contrasena">Contraseña</label>
+            <input
+                type="password"
+                id="registro-contrasena"
+                placeholder="Crea una contraseña"
+                autocomplete="new-password"
+                minlength="8"
+                required
+            >
+
+            <label for="registro-confirmar">
+                Confirmar contraseña
+            </label>
+            <input
+                type="password"
+                id="registro-confirmar"
+                placeholder="Repite tu contraseña"
+                autocomplete="new-password"
+                minlength="8"
+                required
+            >
+
+            <button type="submit" id="boton-registrar">
+                Crear mi cuenta
+            </button>
+
+        </form>
+
+        <button type="button" id="boton-volver-login">
+            Ya tengo una cuenta
+        </button>
+
+        <p class="login-nota">
+            Registro local de prueba
+        </p>
+
+    </div>
+</div>
+<!-- FIN DE LA PANTALLA DE REGISTRO -->
+    <div id="pantalla-bienvenida" class="pantalla-bienvenida" hidden>
+    <div class="bienvenida-contenido">
+
+        <div class="bienvenida-imagen">
+            <!-- Aquí colocaremos la imagen del amanecer -->
+        </div>
+
+        <h1>Cada día cuenta</h1>
+
+        <p class="bienvenida-mensaje">
+            Organiza tus ideas. Cumple tus metas.
+            Construye tu futuro.
+        </p>
+
+        <button id="boton-iniciar" class="boton-iniciar">
+            Comenzar ahora →
+        </button>
+
+        <p class="bienvenida-pie">
+            Tu espacio personal para organizar el día
+        </p>
+
+    </div>
+</div>
+  <div class="app-container" id="pantalla-dia" hidden>
+    <div class="bienvenida-diario">
+        <h1>Mi diario</h1>
+        <p class="subtitulo">Un nuevo día, una nueva oportunidad</p>
+
+        <div class="frase-motivacional">
+            <h2>Cada día construyes la vida que deseas.</h2>
+            <p>
+                Organizar tu día es darle dirección a tus sueños.
+                Cada pequeño paso que das hoy te acerca a la vida
+                que quieres construir mañana.
+            </p>
+        </div>
+
+        <button id="boton-comenzar" class="flecha-comenzar"
+                aria-label="Comenzar a organizar mi día">
+            ↓
+        </button>
+        <p>Comenzar mi día</p>
+    </div> 
+  </div>  
+
+<div id="pantalla-nueva" class="app-container" hidden>
+    <h2>Nueva tarea</h2>
+    <p>Aqui podras organizar tus nuevas tareas.</p>
+
+    <input
+     type="text"
+      id="entrada-nueva"
+       placeholder="¿Que nesecitas hacer?">
+       <label for="fecha-tarea">Fecha límite (opcional)</label>
+<input
+    type="date"
+    id="fecha-tarea">
+
+    <label for="prioridad-tarea">
+         Prioridad de la tarea 
+         </label>
+    <select id="prioridad-tarea">
+        <option value="baja">Baja</option>
+        <option value="media" selected>Media</option>
+        <option value="alta">Alta</option>
+    </select>
+
+    <button id="boton-crear">Crear tarea</button>
+
+    <ul id="lista-tareas"></ul>  
+</div>
+
+<div id="pantalla-progreso" class="app-container" hidden>
+    <h2>Mi progreso</h2>
+    <p>Aqui veremos tus tareas completadas y pendientes.</p>
+    <p>Tareas pendientes: <span id="contador-pendientes">0</span></p>
+<p>Tareas completadas: <span id="contador-completadas">0</span></p>
+<div class="progreso-contenedor">
+    <div class="progreso-info">
+        <span>Progreso del día</span>
+        <span id="porcentaje-progreso">0%</span>
+    </div>
+
+    <div class="barra-progreso">
+        <div id="barra-progreso-valor"></div>
+    </div>
+</div>
+<div class="estadisticas-tareas">
+    <h3>Resumen de tareas</h3>
+
+    <div class="estadisticas-grid">
+        <div class="estadistica-card">
+            <span>Total</span>
+            <strong id="estadistica-total">0</strong>
+        </div>
+
+        <div class="estadistica-card">
+            <span>Prioridad alta</span>
+            <strong id="estadistica-alta">0</strong>
+        </div>
+
+        <div class="estadistica-card">
+            <span>Prioridad media</span>
+            <strong id="estadistica-media">0</strong>
+        </div>
+
+        <div class="estadistica-card">
+            <span>Prioridad baja</span>
+            <strong id="estadistica-baja">0</strong>
+        </div>
+    </div>
+
+    <h3>Estado de las tareas</h3>
+
+    <div class="grafico-estados">
+        <div class="grafico-fila">
+            <span>Pendientes</span>
+            <div class="grafico-fondo">
+                <div id="grafico-pendientes" class="grafico-valor pendientes"></div>
+            </div>
+            <strong id="grafico-pendientes-numero">0</strong>
+        </div>
+
+        <div class="grafico-fila">
+            <span>Completadas</span>
+            <div class="grafico-fondo">
+                <div id="grafico-completadas" class="grafico-valor completadas"></div>
+            </div>
+            <strong id="grafico-completadas-numero">0</strong>
+        </div>
+    </div>
+</div>
+</div>
+<!-- PANTALLA DE PERFIL -->
+<div id="pantalla-perfil" class="app-container" hidden>
+    <h1>Mi perfil</h1>
+    <p>Tu espacio personal y configuración.</p>
+
+    <div class="perfil-avatar" id="perfil-avatar">
+    <img
+        id="perfil-foto"
+        src=""
+        alt="Foto de perfil"
+        hidden
+    >
+
+    <span id="perfil-avatar-icono">👤</span>
+</div>
+
+<label for="perfil-foto-archivo" class="perfil-foto-label">
+    📷 Cambiar foto
+</label>
+
+<input
+    type="file"
+    id="perfil-foto-archivo"
+    accept="image/png,image/jpeg,image/webp"
+    hidden
+>
+
+    <label for="perfil-nombre">Nombre de usuario</label>
+    <input
+        type="text"
+        id="perfil-nombre"
+        placeholder="Escribe tu nombre"
+    >
+
+    <label for="perfil-correo">Correo electrónico</label>
+    <input
+        type="email"
+        id="perfil-correo"
+        placeholder="tu@correo.com"
+    >
+
+    <button type="button" id="boton-guardar-perfil">
+        Guardar perfil
+    </button>
+
+    <button type="button" id="boton-cerrar-sesion">
+        Cerrar sesión
+    </button>
+</div>
+<!-- FIN DE LA PANTALLA DE PERFIL -->
+
+<nav class="barra-inferior">
+    <button class="nav-boton" id="boton-atras" type="button">
+          ←
+    </button>
+
+    <button class="nav-boton" data-pantalla="nueva">
+        +
+    </button>
+
+    <button class="nav-boton" data-pantalla="progreso">
+        Progreso
+    </button>
+    <button class="nav-boton" data-pantalla="perfil" type="button">
+        Mi perfil
+    </button>
+</nav>
+    <script src="./script.js"></script>
+</body>
